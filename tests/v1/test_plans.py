@@ -2,9 +2,9 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from api.db.database import get_db, get_db_engine, Base
 from main import app
 from api.v1.models.plans import SubscriptionPlan
+from api.db.database import get_db, get_db_engine, Base
 
 # Configure test database by setting database to test mode to true
 engine = get_db_engine(test_mode=True)

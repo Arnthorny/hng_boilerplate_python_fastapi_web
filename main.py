@@ -4,7 +4,7 @@ from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.requests import Request
-from api.db.database import Base, engine
+from api.db.database import create_database
 
 from api.v1.routes.newsletter_router import (
     CustomException,
@@ -21,8 +21,7 @@ from api.v1.routes.deactivate_invite_link_router import router as deactivate_inv
 from api.v1.routes.newsletter_router import newsletter
 from api.v1.routes import api_version_one
 
-Base.metadata.create_all(bind=engine)
-
+create_database
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     yield
